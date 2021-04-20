@@ -1,19 +1,13 @@
-# What was done
+# Тестовое задание для TD Media
 
-```composer create-project --prefer-dist laravel/laravel backend```
+## Как запустить
+```docker-compose up -d --build``` чтобы поднять контейнер с ИС
 
-```composer require laravel/passport```
+```docker-compose exec backend php artisan migrate:fresh``` для того, чтобы создать таблицы ИС
 
-```npx create-react-app fronted```
+```docker-compose exec backend php artisan db:seed``` для того, чтобы наполнить БД тестовыми данными
 
-```php artisan passport:client --password```
+```docker-compose exec backend php artisan passport:install``` для того, чтобы создать ключи шифрования, необходимые для токенов, используемых при авторизации
 
-##React bootstrap
-```npm install --save react-bootstrap bootstrap react-router-dom react-bootstrap-table2-paginator```
-
-
-
-##How to launch
-Use ```npm start``` to start frontend
-Use ```php artisan serve``` to start backend
+**В случае, если Вы создали ключи шифрования, однако приложение всё ещё выдаёт ошибку - просто подождите** 
  
