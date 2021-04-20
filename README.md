@@ -7,19 +7,9 @@
 ```npx create-react-app fronted```
 
 ##React bootstrap
-```npm install react-bootstrap bootstrap```
+```npm install --save react-bootstrap bootstrap react-router-dom react-bootstrap-table2-paginator```
 
-```npm install --save mdbreact``` ???
 
-##React routing
-```npm install react-router-dom```
-
-```npm install react-bootstrap-table-next --save```
-
-```npm install react-bootstrap-table2-paginator --save```
-
-??##Axios for better API
-??npm install axios
 
 ##How to launch
 Use ```npm start``` to start frontend

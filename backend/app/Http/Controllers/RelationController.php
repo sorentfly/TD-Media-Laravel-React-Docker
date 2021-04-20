@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\BookClient;
 use App\Models\Client;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -91,33 +92,8 @@ class RelationController extends Controller
 
     public function all()
     {
-        $relations = DB::table('book_client')
-            ->orderBy('client_id')
-            ->orderBy('book_id')
-            ->get();
-        $response = [];
-
-        foreach ($relations as $relation) {
-            try {
-                // Trying to get models
-                $this->client = Client::findOrFail($relation->client_id);
-                $this->book   = Book::findOrFail($relation->book_id);
-            } catch (\Exception $exception) {
-                // If there is no lets clear the table and continue
-                DB::table('book_client')
-                    ->where('client_id', '=', $relation->client_id)
-                    ->where('book_id', '=', $relation->book_id)
-                    ->delete();
-                continue;
-            }
-            // key is [client_id-book_id]
-//            $response[implode('-', [$this->client->id, $this->book->id])] = [
-            $response[] = [
-                'client' => $this->client,
-                'book'   => $this->book
-            ];
-        }
-        return response()->json($response, 200);
+        $records = BookClient::getAll(5);
+        return response($records, 200);
     }
 
     public function clients()

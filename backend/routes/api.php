@@ -21,6 +21,10 @@ Route::group(['prefix' => 'auth'], function(){
     Route::post('signup', [AuthController::class, 'signup']); // TODO: remove this
 });
 
+
+
+
+
 Route::group(['middleware' => 'auth:api'], function () {
     Route::get('user', [AuthController::class, 'user']); // TODO: remove this
     Route::get('logout', [AuthController::class, 'logout']);

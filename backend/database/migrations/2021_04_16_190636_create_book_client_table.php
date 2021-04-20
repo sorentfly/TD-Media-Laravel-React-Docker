@@ -14,13 +14,15 @@ class CreateBookClientTable extends Migration
     public function up()
     {
         Schema::create('book_client', function (Blueprint $table) {
+            $table->id();
             $table->bigInteger('book_id')->unsigned()->index();
             $table->foreign('book_id')->references('id')->on('books')->onDelete('cascade');
 
             $table->bigInteger('client_id')->unsigned()->index();
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
 
-            $table->primary(['book_id', 'client_id']);
+//            $table->primary(['book_id', 'client_id']);
+            $table->unique(['book_id', 'client_id']);
         });
     }
 

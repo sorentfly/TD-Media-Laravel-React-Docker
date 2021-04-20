@@ -18,7 +18,8 @@ function Header(){
                 if (response.ok) {
                     return response.json()
                 } else {
-                    alert("Server-side error happened.")
+                    localStorage.removeItem('user-info')
+                    window.location.reload();
                 }
             })
             .then(data => {
