@@ -6,6 +6,8 @@
 
 ```npx create-react-app fronted```
 
+```php artisan passport:client --password```
+
 ##React bootstrap
 ```npm install --save react-bootstrap bootstrap react-router-dom react-bootstrap-table2-paginator```
 

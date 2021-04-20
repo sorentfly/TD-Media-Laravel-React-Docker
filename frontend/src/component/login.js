@@ -3,7 +3,7 @@ import {useHistory} from 'react-router-dom'
 import Header from "./header";
 
 function Login(){
-    const [email, setName] = useState("");
+    const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const history = useHistory();
 
@@ -14,7 +14,7 @@ function Login(){
     }, [])
 
     async function auth(){
-        let data = {email, password}
+        let data = {name, password}
 
         let result = await fetch('http://127.0.0.1:8000/api/auth/login', {
             method: 'POST',
@@ -41,14 +41,14 @@ function Login(){
             <div className="col-sm-6 offset-sm-3 login-form">
                 <h1>Login form</h1>
                 <label>
-                    Email
+                    Username
                 </label>
-                <input id="email" type="email" value={email} onChange={(e)=>setName(e.target.value)} className="form-control" placeholder="email"/>
+                <input id="name" type="username" value={name} onChange={(e)=>setName(e.target.value)} className="form-control" placeholder="Your username"/>
 
                 <label>
                     Password
                 </label>
-                <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} className="form-control" placeholder=""/>
+                <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} className="form-control" placeholder="Your password"/>
                 <button onClick={auth} className="btn btn-primary">LogIn</button>
             </div>
         </div>
